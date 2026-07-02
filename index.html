@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Reader Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body class="dark-theme">
+    <div id="app">
+        <header>
+            <div class="logo">
+                <span class="gradient-text">PDF</span>Viewer
+            </div>
+        </header>
+
+        <main id="content-area">
+            <!-- Screen 1: Library/Subjects -->
+            <section id="library-screen" class="screen">
+                <div class="section-header">
+                    <div class="title-container">
+                        <h1 class="section-title">Meus Assuntos</h1>
+                        <span class="title-separator">-</span>
+                        <span id="total-subjects" class="total-count">total 0</span>
+                    </div>
+                    <div class="header-actions">
+                        <button id="btn-import-folder" class="btn">Importar Pasta</button>
+                    </div>
+                </div>
+                <div id="subjects-grid" class="grid"></div>
+            </section>
+
+        </main>
+
+
+        <!-- PDF Reader Modal/Card -->
+        <div id="reader-overlay" class="hidden">
+            <div id="reader-card">
+                <!-- Sidebar Controls -->
+                <aside class="reader-sidebar">
+                    <div class="sidebar-top">
+                        <div class="sidebar-row-1">
+                            <button id="close-reader" class="btn-icon btn-close">✕</button>
+                            <div id="page-info">Página 1 / 1</div>
+                        </div>
+
+                        <div class="header-controls">
+                            <div id="sidebar-position-card" class="view-mode-container" title="Mudar posição (Q)">
+                                <span id="sidebar-position-text">Menu Lateral</span>
+                                <span id="sidebar-position-icon">↔️</span>
+                            </div>
+                            <div id="view-mode-card" class="view-mode-container" title="Alternar modo de vista (E)">
+                                <span id="view-mode-text">Folha Única</span>
+                                <span id="view-mode-icon">📄</span>
+                            </div>
+                        </div>
+
+                        <h2 id="reader-title"></h2>
+
+                    </div>
+
+                    
+                    <div class="sidebar-center">
+                        <h3 class="sidebar-label">Capítulos</h3>
+                        <div id="chapter-list">
+                            <!-- Chapter items will be rendered here -->
+                        </div>
+                    </div>
+
+                    <div class="sidebar-bottom">
+                        <div class="shortcuts-hint">
+                            <div>Páginas: ← →</div>
+                            <div>Arquivos: ↑ ↓</div>
+                            <div>Marcar Favorito: F</div>
+                            <div>Mudar Status: R</div>
+                            <div>Posição Menu: Q</div>
+                            <div>Modo de Exibição: E</div>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- PDF Content Area -->
+                <div class="reader-body">
+                    <div id="canvas-container">
+                        <div id="page-wrapper" class="view-single">
+                            <canvas id="pdf-canvas" class="page-canvas"></canvas>
+                            <canvas id="pdf-canvas-2" class="page-canvas hidden"></canvas>
+                            <div class="page-shine"></div>
+                        </div>
+                        <div id="pdf-loading" class="loading-spinner hidden"></div>
+                    </div>
+
+
+                    <!-- Floating Navigation Controls -->
+                    <div class="floating-controls">
+                        <button id="prev-page" class="btn-floating">←</button>
+                        <button id="next-page" class="btn-floating">→</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

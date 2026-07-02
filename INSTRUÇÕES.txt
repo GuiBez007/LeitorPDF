@@ -1,0 +1,3 @@
+Crie uma pasta chamada "PDFs" (exatamente esse nome) e adicione pastas com pdfs dentro delas
+Inicie um servidor (uso liveserver abrindo com vscode) e pronto!
+Tudo é salvo em localhost (armazenamento local do navegador)
